@@ -29,7 +29,21 @@ driver.get(linkedin_url)
 sel = Selector(text = driver.page_source)
 
 name = sel.xpath('//*[starts-with(@class, "topcard__name")]/text()').extract_first()
+job_nogrowth = sel.xpath('//*[starts-with(@class, "section-item__title position__title")]/text()').getall()
+job_growth = sel.xpath('//*[starts-with(@class, "section-item__title experience-group-item__title")]/text()').getall()
+co_nogrowth = sel.xpath('//*[starts-with(@class, "position__company-name")]/text()').getall()
+co_growth = sel.xpath('//*[starts-with(@class, "section-item__title experience-group-header__title")]/text()').getall()
+schools = sel.xpath('//*[starts-with(@class, "section-item__title education-item__title")]/text()').getall()
+degrees = sel.xpath('//*[starts-with(@class, "education-item__degree-info")]/text()').getall()
+location = sel.xpath('//*[starts-with(@class, "topcard__location")]/text()').extract_first()
+industry = sel.xpath('//*[starts-with(@class, "topcard__industry")]/text()').extract_first()
 
+
+# How do we return an entire section with the tag 'div'
+# sec = sel.xpath('//*[starts-with(@class, "section-item__content education-item__content")]/text()').getall()
+
+# Do we want description? Differs between g/ng
+# des_nogrowth = sel.xpath('//*[starts-with(@class, "position-body__description")]/text()').getall()
 
 
 
